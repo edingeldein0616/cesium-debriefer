@@ -16,6 +16,6 @@ export class FlightInfoComponent {
     }
 
     startFlight() {
-        this.router.navigate(['home/flight-display']);
+        this.router.navigate(['flight-display']);
     }
 }

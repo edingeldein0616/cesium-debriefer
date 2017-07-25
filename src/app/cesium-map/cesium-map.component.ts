@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { CesiumInfoComponent } from './cesium-info/cesium-info.component';
+
 @Component({
   selector: 'app-cesium-map',
   templateUrl: './cesium-map.component.html',
