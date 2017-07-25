@@ -1,0 +1,30 @@
+body {
+  background-color: #a6a6a6;
+}
+
+.btn.btn-success {
+  padding-left: 30px;
+  padding-right: 30px;
+  font-size: 16px;
+}
+
+.help-block {
+  color: #f2f2f2;
+}
+
+input.ng-invalid.ng-touched {
+  border: 2px solid #ff6666;
+}
+
+label {
+  color: #f2f2f2;
+  font-size: 16px;
+}
+
+.panel-body {
+    min-height: 250px;
+}
+
+.activeRow {
+  background-color: #55E073;
+}

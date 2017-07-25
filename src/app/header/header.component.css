@@ -1,0 +1,27 @@
+#navbar-logout {
+  border-left: 2px solid #f2f2f2;
+  border-radius: 5px;
+  color: #e55959;
+  font-size: 20px;
+}
+
+#navbar-logstatus {
+  border-left: 2px solid #f2f2f2;
+  border-radius: 5px;
+  color: #f2f2f2;
+  font-size: 20px;  
+}
+
+#navbar-logout:hover, .navbar-brand:hover {
+  color: #55E073;
+}
+
+nav {
+  background-color: #808080;
+  border-bottom: 4px solid #595959;
+}
+
+.navbar-brand {
+  font-size: 50px;
+  color: #f2f2f2;
+}

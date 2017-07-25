@@ -1,0 +1,39 @@
+<div class="row">   
+    <div class="panel panel-default">
+        <ul class="nav nav-pills" [hidden]="hideTabs()">
+            <li role="presentation" [ngClass]="{'active': activeTab === 'Students', 'inactive': activeTab !== 'Students'}">
+                <a role="button" (click)="onTabSelect('Students')">Students</a>
+            </li>
+            <li role="presentation" 
+                [ngClass]="{'active': activeTab === 'Instructors', 'inactive': activeTab !== 'Instructors'}">
+                <a role="button" (click)="onTabSelect('Instructors')">Instructors</a>
+            </li>
+        </ul>          
+        <div class="panel-heading" [class.tabsActive]="!hideTabs()">
+            <div class="row">
+               <div class="col-lg-4">
+                    <h1>{{ activeTab }}</h1>
+                </div>
+                <div class="col-lg-8">
+                    <form class="search-form">
+                        <div class="form-group">
+                            <label for="search">Search</label>
+                            <input type="text" id="search">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="panel-body">
+            <ul class="list-group">
+                <li class="list-group-item" *ngFor="let pilot of pilots; let i = index"
+                    [class.activeRow]="i == activeRow">
+                    {{ pilot.firstname }} {{ pilot.lastname }}
+                    <a role="button" class="badge" (click)="onSelect(i)">
+                        <span class="glyphicon glyphicon-menu-right"></span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

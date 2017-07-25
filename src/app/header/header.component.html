@@ -1,0 +1,19 @@
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" 
+                href="http://www.asn.und.edu/">
+                Debriefer
+            </a>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+            <li *ngIf="showLogoutButton">
+                <a id="navbar-logout" role="button" (click)="onLogout()">Logout</a>
+            </li>
+            <li>
+                <a *ngIf="showLogoutButton; else elseBlock" id="navbar-logstatus" role="nothing">Logged in as {{ loggedInUser }}</a>
+                <ng-template #elseBlock><a style="color: #f2f2f2;">You are not logged in</a></ng-template>
+            </li>
+        </ul>
+    </div>
+</nav>

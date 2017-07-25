@@ -1,0 +1,15 @@
+<div class="row" [class.marginActive]="!hideMargin()">
+    <div class="panel panel-default">
+        <div class="panel-heading"><h1>Flights</h1></div>
+        <div class="panel-body">
+            <ul class="list-group">
+                <li class="list-group-item" *ngFor="let flight of flights; let i = index">
+                    {{ flight.airfield }} <span id="tab"></span> <strong>{{ flight.date }}</strong>
+                    <a role="button" class="badge" (click)="onSelect(i)">
+                        <span class="glyphicon glyphicon-menu-right"></span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

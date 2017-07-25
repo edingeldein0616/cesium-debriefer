@@ -1,0 +1,61 @@
+a.badge {
+    color: white;
+}
+
+a.badge:hover {
+    color: #55E073;
+}
+
+label {
+    color: #333;
+    font-size: 12px;
+}
+
+li.inactive {
+    background-color: #dbdbdb;
+    border-top-right-radius: 4px;
+    border-top-left-radius: 4px;
+}
+li.inactive:hover {
+    background-color: #dbdbdb;
+    border-top-right-radius: 4px;
+    border-top-left-radius: 4px;
+}
+
+li.inactive>a {
+    color: #333;
+}
+
+.nav-pills>li.active>a {
+    color: #333;
+    background-color: #f5f5f5;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+.panel.panel-default {
+    background-color: transparent;
+    border-color: transparent;
+}
+
+.panel-body {
+    background-color: #E9E9E9;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+
+.panel-heading.tabsActive {
+    color: #333;
+    background-color: #f5f5f5;
+    border-top-color: transparent;
+    border-top-left-radius: 0px;
+}
+
+.row {
+    margin-right: 10px;
+}
+
+.search-form {
+    margin-top: 25px;
+    margin-left: 20px;
+}
