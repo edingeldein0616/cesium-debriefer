@@ -1,5 +1,25 @@
 <div class="row">
-    <div id="cesiumContainer"></div>
+
+    <!--THE CESIUM CONTAINER-->
+    <div id="cesiumContainer" class="col-md-12"></div>
+    <!--THE CESIUM CONTAINER-->
+
+    <div id="controlPanel">
+        <div class="btn-group" dropdown>
+            <button class="btn btn-default btn-lg dropdown-toggle">
+                <span class="glyphicon glyphicon-menu-hamburger"></span>
+                <span class="class glyphicon glyphicon-menu-down"></span>
+            </button>
+            <ul class="dropdown-menu">
+                <li>
+                    <a role="button" (click)="onBack()">
+                        <span class="glyphicon glyphicon-backward"></span>
+                        <span class="tab"></span>Back
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
 </div>
 <div class="row">
     <div class="col-lg-10 col-lg-offset 10">

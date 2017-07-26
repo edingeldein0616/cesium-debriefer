@@ -8,6 +8,7 @@ import { Flight } from '../home/flights/flight.model';
 export class AuthService implements OnInit {
 
     loginStatusChange = new EventEmitter<boolean>(); // HeaderComponent
+    flightStarted = new EventEmitter<boolean>(); // Header Component
     private loggedInUser: User;
     users: User[] = [
         new User('admin', 'testPass', '5498753', 'ADMIN'),

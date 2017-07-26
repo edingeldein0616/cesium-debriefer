@@ -14,6 +14,7 @@ import { FlightInfoComponent } from './home/flight-info/flight-info.component';
 import { CesiumMapComponent } from './cesium-map/cesium-map.component';
 import { CesiumInfoComponent } from './cesium-map/cesium-info/cesium-info.component';
 import { ColorOnClickDirective } from './directives/color-on-click.directive';
+import { DropdownDirective } from './directives/dropdown.directive';
 
 import { AuthService } from './authentication/auth.service';
 import { Http } from '@angular/http';
@@ -29,9 +30,10 @@ import { routing } from './app.routing';
         FlightsComponent,
         StudentsComponent,
         FlightInfoComponent,
-        ColorOnClickDirective,
         CesiumMapComponent,
-        CesiumInfoComponent
+        CesiumInfoComponent,
+        ColorOnClickDirective,
+        DropdownDirective
     ],
     imports: [
         BrowserModule,

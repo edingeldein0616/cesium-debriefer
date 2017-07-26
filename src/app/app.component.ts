@@ -11,11 +11,17 @@ import { AuthService } from './authentication/auth.service';
 })
 export class AppComponent implements OnInit{
 
+    flightOpen: boolean = false;
+
     constructor(private authService: AuthService) {}
 
     ngOnInit () {
         if(localStorage.getItem('token')) {
-            this.authService.setLoggedInUser(localStorage.getItem('user'))
+            this.authService.setLoggedInUser(localStorage.getItem('user'));
         }
+        this.authService.flightStarted
+            .subscribe(
+                (status: boolean) => this.flightOpen = status
+            )
     }
 }

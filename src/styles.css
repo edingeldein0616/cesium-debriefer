@@ -1,8 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
 @import url('../node_modules/cesium/Build/Cesium/Widgets/widgets.css');
-html, body, #cesiumContainer {
+#cesiumContainer {
     width: 100%;
-    height: 100%;
+    height: 750px;
+    min-height: 750px;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #a6a6a6;
+}
+
+#cesiumContainer.col-sm-12 {
+    width: 100%;
+    height: 675px;
+    min-height: 675px;
     margin: 0;
     padding: 0;
     overflow: hidden;
@@ -38,4 +49,9 @@ label {
 
 .activeRow {
   background-color: #55E073;
+}
+
+.tab {
+  display: inline-block;
+  width: 13px;
 }
