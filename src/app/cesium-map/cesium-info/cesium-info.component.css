@@ -1,0 +1,9 @@
+li.list-group-item {
+    background-color: #3f3f3f;
+    color: #d13325;
+    font-family: Courier;
+}
+
+ul.list-group {
+    margin-top: 10px;
+}
