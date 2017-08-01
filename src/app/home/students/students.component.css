@@ -6,6 +6,12 @@ a.badge:hover {
     color: #55E073;
 }
 
+.highlight {
+    background-color: #55E073;
+    color: #333;
+    text-decoration: none;
+}
+
 label {
     color: #333;
     font-size: 12px;
@@ -24,6 +30,11 @@ li.inactive:hover {
 
 li.inactive>a {
     color: #333;
+}
+
+li.list-group-item {
+    color: #333;
+    text-decoration: none;
 }
 
 .nav-pills>li.active>a {

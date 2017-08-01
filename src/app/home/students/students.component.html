@@ -26,13 +26,14 @@
         </div>
         <div class="panel-body">
             <ul class="list-group">
-                <li class="list-group-item" *ngFor="let pilot of pilots; let i = index"
-                    [class.activeRow]="i == activeRow">
-                    {{ pilot.firstname }} {{ pilot.lastname }}
-                    <a role="button" class="badge" (click)="onSelect(i)">
-                        <span class="glyphicon glyphicon-menu-right"></span>
-                    </a>
-                </li>
+                <a role="button" (click)="onSelect(i)" *ngFor="let pilot of pilots; let i = index">
+                    <li class="list-group-item" hover>
+                        {{ pilot.firstname }} {{ pilot.lastname }}
+                        <a class="badge">
+                            <span class="glyphicon glyphicon-menu-right"></span>
+                        </a>
+                    </li>
+                </a>
             </ul>
         </div>
     </div>

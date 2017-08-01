@@ -13,8 +13,8 @@ import { StudentsComponent } from './home/students/students.component';
 import { FlightInfoComponent } from './home/flight-info/flight-info.component';
 import { CesiumMapComponent } from './cesium-map/cesium-map.component';
 import { CesiumInfoComponent } from './cesium-map/cesium-info/cesium-info.component';
-import { ColorOnClickDirective } from './directives/color-on-click.directive';
 import { DropdownDirective } from './directives/dropdown.directive';
+import { HoverDirective } from './directives/hover.directive';
 
 import { AuthService } from './authentication/auth.service';
 import { Http } from '@angular/http';
@@ -32,8 +32,8 @@ import { routing } from './app.routing';
         FlightInfoComponent,
         CesiumMapComponent,
         CesiumInfoComponent,
-        ColorOnClickDirective,
-        DropdownDirective
+        DropdownDirective,
+        HoverDirective
     ],
     imports: [
         BrowserModule,
