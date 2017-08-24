@@ -4,7 +4,7 @@ import 'rxjs/add/operator/map';
 import { Observable } from 'rxjs';
 
 import { User } from '../authentication/user.model';
-import { Flight } from './flights/flight.model';
+import { Flight } from './students/flights/flight.model';
 import { AuthService } from '../authentication/auth.service';
 
 @Injectable()
@@ -13,9 +13,9 @@ export class HomeService {
     
     // flightSelected = new EventEmitter<Flight>();
     currentUser: User;
-    flightOpened = new EventEmitter<boolean>(); //HomeComponent
     selectedUser: User;
     selectedRow: number;
+    selectedTab: string = 'Students';
     studentLoggedIn: boolean = true;
     userSelected = new EventEmitter<User>(); //HomeComponent, FlightsComponent, UsersComponent
     private visibleUsers: User[] = [];
@@ -35,14 +35,13 @@ export class HomeService {
 
     // Retrieves flights associated with the user's id.
     initCurrentUserFlights() {
-        this.currentUserFlights = this.authService.getFlights();
+        this.currentUserFlights = this.authService.getUsersFlights(this.currentUser);
     } 
     
     // Retrieves users that will be visible to the current user based off of their permission level.
     initVisibleUsers() {
         this.visibleUsers = this.authService.getUsers(localStorage.getItem('permission'));
-        this.visibleUsers[2].flights = this.authService.getFlights();
-        console.log(this.visibleUsers);
+        // this.visibleUsers[2].flights = this.authService.getFlights();
     }
     
     // Returns flights associated with the current user.
@@ -76,8 +75,11 @@ export class HomeService {
     getSelectedUser() : User {
         return this.selectedUser;
     }
+
     setSelectedUser(user: User) {
         this.selectedUser = user;
+        this.currentUserFlights = user.flights;
+        this.userSelected.emit(user);
     }
 
 }

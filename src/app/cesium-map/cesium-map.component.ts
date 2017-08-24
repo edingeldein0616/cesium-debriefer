@@ -15,8 +15,12 @@ export class CesiumMapComponent implements OnInit {
   constructor(private router: Router, private authService: AuthService) { }
 
   onBack() {
-    this.router.navigate(['home']);
+    this.router.navigate(['home', 'info']);
     this.authService.flightStarted.emit(false);
+  }
+
+  onRestart() {
+
   }
 
   ngOnInit() {

@@ -1,0 +1,9 @@
+.row {
+    position: relative;
+}
+
+.bottom-align-button {
+    position: absolute;
+    bottom: 35px;
+    right: 15px;
+}

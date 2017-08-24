@@ -23,5 +23,7 @@ export class AppComponent implements OnInit{
             .subscribe(
                 (status: boolean) => this.flightOpen = status
             )
+
+        this.authService.assignFlights();
     }
 }

@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { HomeService } from '../home.service';
-import { AuthService } from '../../authentication/auth.service';
+import { HomeService } from '../../../home.service';
+import { AuthService } from '../../../../authentication/auth.service';
 
 @Component({
     selector: 'app-flight-info',
-    templateUrl: './flight-info.component.html'
+    templateUrl: './flight-info.component.html',
+    styleUrls: ['./flight-info.component.css']
 })
 export class FlightInfoComponent {
 
@@ -15,7 +16,8 @@ export class FlightInfoComponent {
                 private authService: AuthService) {}
 
     onBack() {
-        this.homeService.flightOpened.emit(false);
+        this.router.navigate(['home', 'flights']);
+        // this.homeService.flightOpened.emit(false);
     }
 
     startFlight() {

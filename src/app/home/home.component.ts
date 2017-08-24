@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { HomeService } from './home.service';
 
 import { User } from '../authentication/user.model';
+import { Flight } from './students/flights/flight.model';
 
 @Component({
     selector: 'app-home',
@@ -15,10 +16,12 @@ export class HomeComponent implements OnInit {
     constructor(private homeService: HomeService, private router: Router) {}
 
     private permission: string;
-    userSelected: User;
+    selectedUser: User;
     displayFlight: boolean = true;
     flightSelected: boolean = false;
-    studentLoggedIn = true;
+    studentLoggedIn;
+
+    flights: Flight[] = [];
 
     ngOnInit() {
         this.homeService.initCurrentUser();
@@ -27,28 +30,23 @@ export class HomeComponent implements OnInit {
         if(this.permission !== 'STUDENT') {
             this.homeService.studentLoggedIn = false;
             this.studentLoggedIn = false;
+            this.router.navigate(['home', 'students']);
         } else {
             this.homeService.studentLoggedIn = true;
+            this.studentLoggedIn = true;
+            this.router.navigate(['home', 'flights']);
         }
         
         this.homeService.userSelected
             .subscribe(
                 (user: User) => {
-                    this.userSelected = user;
+                    if(user)
+                        this.router.navigate(['home', 'flights']);
+                    this.selectedUser = user;
                     this.displayFlight = true;
                 }
             );
-
-        this.homeService.flightOpened
-            .subscribe(
-                (status: boolean) => {
-                    this.displayFlight = !status;
-                    if(status) {
-                        this.router.navigate(['/home', 'flight-info']);
-                        return;
-                    }
-                    this.router.navigate(['home']);
-                }
-            )
+        
+        this.flights = this.homeService.getCurrentUserFlights();
     }
 }

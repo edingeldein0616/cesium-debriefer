@@ -1,0 +1,27 @@
+<div class="row">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h1>
+                <span *ngIf="getPermission()">
+                    <button class="btn btn-default" (click)="onBack()"><span class="glyphicon glyphicon-arrow-left"></span></button>
+                </span>
+                Flights
+            </h1>
+        </div>
+        <div class="panel-body">
+            <ul class="list-group">
+                <a role="button" (click)="onSelect(i)" *ngFor="let flight of flights; let i = index">
+                    <li class="list-group-item" hover>
+                        {{ flight.airfield }} <span id="tab"></span> 
+                        <strong>{{ flight.date }}</strong> <span id="tab"></span>
+                        {{ flight.length }} <span id="tab"></span>
+                        
+                        <a class="badge">
+                            <span class="glyphicon glyphicon-menu-right"></span>
+                        </a>
+                    </li>
+                </a>
+            </ul>
+        </div>
+    </div>
+</div>

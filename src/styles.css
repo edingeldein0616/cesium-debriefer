@@ -20,6 +20,10 @@
     background-color: #a6a6a6;
 }
 
+a.button:hover {
+    text-decoration: none;
+}
+
 body#override {
   background-color: #a6a6a6;
 }
@@ -47,6 +51,11 @@ input.ng-invalid.ng-touched {
 label {
   color: #f2f2f2;
   font-size: 16px;
+}
+
+li.list-group-item.highlight {
+    color: #003300;
+    background-color: #55E073;
 }
 
 .panel-body {

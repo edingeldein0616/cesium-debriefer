@@ -6,9 +6,7 @@ a.badge:hover {
     color: #55E073;
 }
 
-.highlight {
-    background-color: #55E073;
-    color: #333;
+a:hover {
     text-decoration: none;
 }
 
@@ -34,9 +32,7 @@ li.inactive>a {
 
 li.list-group-item {
     color: #333;
-    text-decoration: none;
 }
-
 .nav-pills>li.active>a {
     color: #333;
     background-color: #f5f5f5;

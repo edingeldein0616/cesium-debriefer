@@ -11,14 +11,14 @@
         </ul>          
         <div class="panel-heading" [class.tabsActive]="!hideTabs()">
             <div class="row">
-               <div class="col-lg-4">
+               <div class="col-lg-4 col-sm-4">
                     <h1>{{ activeTab }}</h1>
                 </div>
-                <div class="col-lg-8">
+                <div class="col-lg-3 col-sm 3 pull-right">
                     <form class="search-form">
-                        <div class="form-group">
+                        <div class="form-group" [formGroup]="searchForm" (keyup)="filter()">
                             <label for="search">Search</label>
-                            <input type="text" id="search">
+                            <input type="text" id="search" formControlName="searchBox">
                         </div>
                     </form>
                 </div>

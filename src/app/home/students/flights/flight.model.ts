@@ -6,6 +6,8 @@ export class Flight {
         public length?: string,
         public flightId?: string,
         public studentId?: string,
-        public instructorId?: string 
+        public instructorId?: string,
+        public studentName?: string,
+        public instructorName?: string
     ) {}
 }

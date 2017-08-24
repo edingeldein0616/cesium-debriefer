@@ -2,7 +2,7 @@ import { Injectable, OnInit, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { User } from './user.model';
-import { Flight } from '../home/flights/flight.model';
+import { Flight } from '../home/students/flights/flight.model';
 
 @Injectable()
 export class AuthService implements OnInit {
@@ -11,23 +11,25 @@ export class AuthService implements OnInit {
     flightStarted = new EventEmitter<boolean>(); // Header Component
     private loggedInUser: User;
     users: User[] = [
+        // username, password, userId, permission, firstname, lastname
         new User('admin', 'testPass', '5498753', 'ADMIN'),
         new User('flight.instructor', 'instruct', '1549854', 'INSTRUCTOR', 'Chuck', 'Yeager'),
         new User('erich.dingeldein', 'student', '1832680','STUDENT', 'Erich', 'Dingeldein'),
-        new User('student.one', 'student', '9842165','STUDENT', 'Some', 'Guy'),
-        new User('student.two', 'student', '146872.','STUDENT', 'Someother', 'Girl'),
+        new User('student.one', 'student', '9842165','STUDENT', 'Some', 'Girl'),
+        new User('student.two', 'student', '1468720','STUDENT', 'Someother', 'Guy'),
         new User('student.three', 'student', '5789642','STUDENT', 'Another', 'Person')
     ];
 
     flights: Flight[] = [
-        new Flight('KGFK', '2017-06-15 T13:45:30 UTC'),
-        new Flight('KGFK', '2017-06-15 T14:20:00 UTC'),
-        new Flight('KGFK', '2017-06-17 T10:08:00 UTC'),
-        new Flight('KGFK', '2017-06-18 T15:52:30 UTC'),
-        new Flight('KGFK', '2017-06-19 T09:32:30 UTC'),
-        new Flight('KGFK', '2017-06-20 T13:21:30 UTC'),
-        new Flight('KGFK', '2017-06-21 T16:20:30 UTC'),
-        new Flight('KGFK', '2017-06-22 T11:25:30 UTC'),
+        //        airfield, date, length, flightId, studentId, instructorId
+        new Flight('KGFK', '2017-06-15 T13:45:30 UTC', '2h15m', '00', '1832680', '1549854'),
+        new Flight('KGFK', '2017-06-15 T14:20:00 UTC', '1h15m', '00', '9842165', '1549854'),
+        new Flight('KGFK', '2017-06-17 T10:08:00 UTC', '2h30m', '00', '1832680', '1549854'),
+        new Flight('KGFK', '2017-06-18 T15:52:30 UTC', '2h00m', '00', '1832680', '1549854'),
+        new Flight('KGFK', '2017-06-19 T09:32:30 UTC', '1h45m', '00', '9842165', '1549854'),
+        new Flight('KGFK', '2017-06-20 T13:21:30 UTC', '1h00m', '00', '1832680', '1549854'),
+        new Flight('KGFK', '2017-06-21 T16:20:30 UTC', '0h45m', '00', '1468720', '1549854'),
+        new Flight('KGFK', '2017-06-22 T11:25:30 UTC', '3h00m', '00', '1832680', '1549854'),
     ];
 
     constructor(private router: Router) {}
@@ -114,9 +116,36 @@ export class AuthService implements OnInit {
         }
     }
 
-    // Returns the full flight array
-    getFlights() : Flight[] {
-        return this.flights.slice();
+    // Returns the flights that contain current user id.
+    getUsersFlights(user : User) : Flight[] {
+        let userId = '';
+        let matchedFlights : Flight[] = [];
+        if(!user) {
+            userId = this.loggedInUser.getId();
+        } else {
+            userId = user.getId();
+        }
+
+        for(let flight of this.flights) {
+            if(userId === flight.studentId || userId === flight.instructorId) {
+                matchedFlights.push(flight);
+            }
+        }
+        return matchedFlights;
+    }
+
+    // used in app component
+    assignFlights() {
+
+        for(let user of this.users) {
+            const id = user.getId();
+            for(let flight of this.flights) {
+                if(id === flight.studentId || id === flight.instructorId) {
+                    user.addFlight(flight);
+                }
+            }
+        }
+
     }
 
     ngOnInit() {

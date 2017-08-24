@@ -1,4 +1,4 @@
-import { Flight } from '../home/flights/flight.model';
+import { Flight } from '../home/students/flights/flight.model';
 
 export class User {
     
@@ -26,6 +26,10 @@ export class User {
 
     getPermission() : string {
         return this.permission;
+    }
+
+    getId() : string {
+        return this.userId;
     }
 
     addFlight(flight: Flight) {

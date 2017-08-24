@@ -1,5 +1,17 @@
+a:hover {
+    text-decoration: none;
+}
+
+a.badge {
+    background-color: #808080;
+}
+
 a.badge:hover {
     color: #55E073;
+}
+
+li.list-group-item {
+    color: #333;
 }
 
 .panel.panel-default {
@@ -15,14 +27,6 @@ a.badge:hover {
 
 .panel-head {
     background-color: #40C85C;
-}
-
-.row {
-    margin-right: 10px;
-}
-
-.row.marginActive {
-    margin-top: 40px;
 }
 
 #tab {
