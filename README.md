@@ -1,5 +1,6 @@
 <h1>Installation</h1>
 <ol>
+    <li>Open a command prompt and navigate to the project root directory</li>
     <li>npm install (in root directory)</li>
     <li>ng serve (to start test server)</li>
 </ol>
